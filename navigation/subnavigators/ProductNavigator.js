@@ -1,11 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { createAppContainer } from "react-navigation";
 
-import { Platform } from "react-native";
-
-import ProductPage from "../screens/products/ProductPage";
-import ProductDetailScreen from "../screens/products/ProductDetailScreen";
-import Colors from "../constants/Colors";
+import ProductPage from "../../screens/products/ProductPage";
+import ProductDetailScreen from "../../screens/products/ProductDetailScreen";
 
 const ProductStack = createStackNavigator();
 
@@ -18,4 +14,4 @@ const ProductNavigator = () => {
     );
 };
 
-export default ProductNavigator;
+export default ProductNavigator; 

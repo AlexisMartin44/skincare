@@ -5,9 +5,8 @@ import Home from '../screens/home/Home';
 import Profile from '../screens/profile/ProfilePage';
 import Message from '../screens/messages/Message';
 import Barcode from '../screens/barcode/Barcode';
-import ProductPage from "../screens/products/ProductPage";
 
-import ProductNavigator from './ProductNavigator';
+import ProductNavigator from './subnavigators/ProductNavigator'; 
 import Colors from '../constants/Colors';
 
 const Tab = createBottomTabNavigator();

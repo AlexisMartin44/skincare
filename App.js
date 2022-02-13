@@ -1,12 +1,16 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { LogBox } from 'react-native';
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import { NavigationContainer } from '@react-navigation/native';
+import ReduxThunk from 'redux-thunk';
+import { createNavigationContainerRef } from "@react-navigation/native";
+
 
 import productsReducer from "./store/reducers/products";
 import Tabs from './navigation/Tabs';
+import MainNavigator from './navigation/MainNavigator';
 
 LogBox.ignoreLogs(['Remote debugger']);
 
@@ -16,7 +20,7 @@ const rootReducer = combineReducers({
 });
 
 //Create store with our rootReducer
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 export default function App() {
 
@@ -25,13 +29,15 @@ export default function App() {
     "koho-bold": require("./assets/fonts/KoHo-Bold.ttf"),
   });
 
+  const navigationRef = createNavigationContainerRef();
+
   if(!fontsLoaded) {
     return <AppLoading />;
   } else {
     return (
       <Provider store={store}>
-        <NavigationContainer>
-          <Tabs />
+        <NavigationContainer ref={navigationRef}>
+          <MainNavigator />
         </NavigationContainer>
       </Provider>
     );
