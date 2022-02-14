@@ -1,11 +1,8 @@
 import React, {useReducer, useCallback, useEffect} from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { ScrollView, KeyboardAvoidingView, View, StyleSheet, Button, Platform, Text, TouchableOpacity, Touchable } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { ScrollView, KeyboardAvoidingView, View, StyleSheet, Platform, Text, TouchableOpacity, Touchable } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import Input from '../../components/UI/Input';
-import Card from '../../components/UI/Card';
 import Colors from '../../constants/Colors';
 import * as authActions from '../../store/actions/auth';
 import { auth } from '../../firebase';
@@ -120,7 +117,7 @@ const LoginScreen = props => {
                         <Text style={styles.buttonText}>Se connecter</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => {props.navigation.navigate('AuthScreen')}} style={{color: "black"}} > 
-                        <Text style={{color: Colors.darkBlue}}>Déjà un compte ? Se connecter</Text>
+                        <Text style={{color: Colors.darkBlue}}>Pas de compte ? S'inscrire</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>

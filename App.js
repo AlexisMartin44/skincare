@@ -27,6 +27,7 @@ export default function App() {
   let [fontsLoaded] = useFonts({
     "koho": require("./assets/fonts/KoHo-Regular.ttf"),
     "koho-bold": require("./assets/fonts/KoHo-Bold.ttf"),
+    "koho-light": require("./assets/fonts/KoHo-Light.ttf")
   });
 
   const navigationRef = createNavigationContainerRef();

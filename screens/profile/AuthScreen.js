@@ -61,13 +61,20 @@ const AuthScreen = props => {
         formIsValid: false
     });
 
+    const checkState = () => {
+        const {email, password, passwordValidation, firstName, lastName} = formState['inputValues'];
+        return email && password && passwordValidation && firstName && lastName && password === passwordValidation;
+    }
+
     const signupHandler = () => {
-        dispatch(
-            authActions.signup(
-                formState.inputValues.email,
-                formState.inputValues.password
-            )
-        );
+        if(checkState()) {
+            dispatch(
+                authActions.signup(
+                    formState.inputValues.email,
+                    formState.inputValues.password
+                )
+            );
+        }
     }
 
     const inputChangeHandler = useCallback(
@@ -99,6 +106,7 @@ const AuthScreen = props => {
                                 label="Nom"
                                 required
                                 autoCapitalize="none"
+                                errorText="Please complete this field."
                                 onInputChange={inputChangeHandler}
                                 initialValue=""
                             />
@@ -109,6 +117,7 @@ const AuthScreen = props => {
                                 label="Prénom"
                                 required
                                 autoCapitalize="none"
+                                errorText="Please complete this field."
                                 onInputChange={inputChangeHandler}
                                 initialValue=""
                             />
@@ -138,7 +147,7 @@ const AuthScreen = props => {
                         initialValue=""
                     />
                     <Input
-                        id="passwordVerification"
+                        id="passwordValidation"
                         label="Confirmez votre mot de passe"
                         keyboardType="default"
                         secureTextEntry
@@ -155,7 +164,7 @@ const AuthScreen = props => {
                         <Text style={styles.buttonText}>Se connecter</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => {props.navigation.navigate('Login')}} style={{color: "black"}} > 
-                        <Text style={{color: Colors.darkBlue}}>Pas encore inscrit ? S'inscrire</Text>
+                        <Text style={{color: Colors.darkBlue}}>Déjà inscrit ? Se connecter</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>

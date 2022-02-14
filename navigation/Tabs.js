@@ -37,6 +37,7 @@ const CustomTabBarButton = ({children, onPress}) => {
 const Tabs = () => {
     return(
         <Tab.Navigator
+            initialRouteName="Home"
             screenOptions={{
                 tabBarShowLabel: false,
                 tabBarStyle: {
@@ -49,7 +50,7 @@ const Tabs = () => {
                     borderRadius: 15,
                     height: 90,
                     ...styles.shadow
-                }
+                },
             }}
         >
             <Tab.Screen name="Barcode" 
