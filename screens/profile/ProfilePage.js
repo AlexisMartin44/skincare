@@ -8,12 +8,12 @@ const ProfilePage = props => {
     return(
         <View style={styles.container}>
             <Text>ProfilePage screen</Text>
-            <BlueRectangle>
-                <Button
-                    title='MyRoutine'
-                    onPress={() => alert('Button clicked')} 
-                />
-            </BlueRectangle>
+            <BlueRectangle title='My Routine'/>
+            <BlueRectangle title='Skin Evolution'/>
+            <BlueRectangle title='Prescription'/>
+            <BlueRectangle title='Medical File'/>
+            <BlueRectangle title='Product Suggestion'/>
+            <BlueRectangle title='Emergency Photo'/>
         </View>
     );
 }

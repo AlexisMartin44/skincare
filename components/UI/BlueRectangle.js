@@ -1,17 +1,26 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
 import Colors from '../../constants/Colors';
+import { View, Button, StyleSheet, TouchableOpacity, Text } from "react-native";
 
-const InfoRectangle = props => {
-    return (
-        <View style={styles.card}>
-            <Text style={styles.title}>{props.title}</Text>
-        </View>
-    );
+TouchableOpacity.defaultProps = { activeOpacity: 0.8 };
+
+const BlueRectangle = ({ onPress, title }) => {
+  return (
+    <View style={styles.screenContainer}>
+      <TouchableOpacity onPress={() => alert('Button clicked')} style={styles.appButtonContainer}>
+         <Text style={styles.appButtonText}>{title}</Text>
+      </TouchableOpacity>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-  card: {
+  screenContainer: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 16
+  },
+  appButtonContainer: {
     shadowColor: 'black',
     shadowOpacity: 0.26,
     shadowOffset: { width: 0, height: 2 },
@@ -20,17 +29,22 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: Colors.textBlue,
     backgroundColor: Colors.lightBlue,
-    height: 20,
-    width: 98,
-    //paddingLeft: 15,
-    paddingVertical: 5,
+    height: 40,
+    width: 250,
+    paddingLeft: 15,
+    paddingVertical: 9,
     justifyContent: 'space-between',
-    marginRight: 20
+    marginRight: 8,
   },
-  title: {
-      fontSize: 9,
-      color: Colors.textBlue,
+  appButtonText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase",
+    fontSize: 15,
+    color: Colors.textBlue,
+    opacity : 1
   }
 });
 
-export default InfoRectangle;
+export default BlueRectangle;
