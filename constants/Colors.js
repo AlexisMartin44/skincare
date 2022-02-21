@@ -4,7 +4,7 @@ export default {
     darkPink: "#C96480",
     darkBlue: "#033F63",
     white: "#F3EBEB",
-    textBlue: "163F60",
+    textBlue: "#163F60",
     lightPink: "#FFF4F4",
     lightBlue: "#719BB9"
 }
