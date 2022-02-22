@@ -7,5 +7,4 @@ export default {
     textBlue: "#163F60",
     lightPink: "#FFF4F4",
     lightBlue: "#719BB9",
-    test: "transparent"
 }
