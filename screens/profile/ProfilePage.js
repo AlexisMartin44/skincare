@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet, Image} from 'react-native';
+import {View, Text, Button, StyleSheet, ScrollView, KeyboardAvoidingView,Platform} from 'react-native';
 
 import BlueRectangle from '../../components/UI/BlueRectangle';
 import DataUser from '../../components/profile/DataUser';
@@ -8,22 +8,28 @@ import Colors from '../../constants/Colors';
 const ProfilePage = props => {
     var icon = require('../../assets/profile/profilePhoto.png');
     return(
-        <><View style={styles.data_profile}>
-                <Text>ProfilePage screen</Text>
-                <DataUser 
+        <>
+        <ScrollView style={{flexGrow: 1, paddingTop: 50, backgroundColor: "white"}}>
+            <View style={styles.data_profile}>
+                <Text style={styles.title}>Profile</Text>
+                <DataUser
                 firstName = 'Elise'
                 name = 'Malard' 
                 image = {require('../../assets/profile/profilePhoto.png')}
+                level = 'level'
                 />
             </View>
             <View style={styles.container}>
-                <BlueRectangle title='My Routine' />
+                <BlueRectangle title='My Routine' 
+                navigate={() => {
+                    props.navigation.navigate('MyRoutine')}}/>
                 <BlueRectangle title='Skin Evolution' />
                 <BlueRectangle title='Prescription' />
                 <BlueRectangle title='Medical File' />
                 <BlueRectangle title='Product Suggestion' />
                 <BlueRectangle title='Emergency Photo' />
             </View>
+         </ScrollView>
         </>
     );
 }
@@ -33,12 +39,23 @@ const styles = StyleSheet.create({
         flex : 1,
         justifyContent: 'center',
         alignItems: 'flex-start',
+        alignItems: 'center',
     },
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-    }
+    },
+    screen: {
+        flex: 1
+    },
+    title: {
+        fontSize: 25,
+        fontFamily: 'koho-bold',
+        color: Colors.darkBlue,
+        marginTop : 20,
+        marginBottom: -10, 
+    },
 });
 
 export default ProfilePage;

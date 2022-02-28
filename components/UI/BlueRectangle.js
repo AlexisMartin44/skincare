@@ -1,13 +1,13 @@
 import React from 'react';
 import Colors from '../../constants/Colors';
-import { View, Button, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 
 TouchableOpacity.defaultProps = { activeOpacity: 0.8 };
 
-const BlueRectangle = ({ onPress, title }) => {
+const BlueRectangle = ({ title,navigate }) => {
   return (
     <View style={styles.screenContainer}>
-      <TouchableOpacity onPress={() => alert('Button clicked')} style={styles.appButtonContainer}>
+      <TouchableOpacity onPress={navigate} style={styles.appButtonContainer}>
          <Text style={styles.appButtonText}>{title}</Text>
       </TouchableOpacity>
     </View>
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     justifyContent: "center",
-    padding: 16
+    padding: 16,
   },
   appButtonContainer: {
     shadowColor: 'black',
