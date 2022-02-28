@@ -22,7 +22,7 @@ const ProfilePage = props => {
             <View style={styles.container}>
                 <BlueRectangle title='My Routine' 
                 navigate={() => {
-                    props.navigation.navigate('MyRoutine')}}/>
+                    props.navigation.navigate('Home')}}/>
                 <BlueRectangle title='Skin Evolution' />
                 <BlueRectangle title='Prescription' />
                 <BlueRectangle title='Medical File' />
