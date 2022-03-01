@@ -7,6 +7,7 @@ import Message from '../screens/messages/Message';
 import Barcode from '../screens/barcode/Barcode';
 
 import ProductNavigator from './subnavigators/ProductNavigator'; 
+import ProfileNavigator from './subnavigators/ProfileNavigator';
 import Colors from '../constants/Colors';
 
 const Tab = createBottomTabNavigator();
@@ -73,7 +74,7 @@ const Tabs = () => {
                     }}} 
             />
             <Tab.Screen name="Profile" 
-                component={Profile} 
+                component={ProfileNavigator} 
                 options={{ 
                     headerShown: false, 
                     tabBarIcon: ({focused}) => {

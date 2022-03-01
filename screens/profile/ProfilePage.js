@@ -23,7 +23,9 @@ const ProfilePage = props => {
                 <BlueRectangle title='My Routine' 
                 navigate={() => {
                     props.navigation.navigate('Home')}}/>
-                <BlueRectangle title='Skin Evolution' />
+                <BlueRectangle title='Skin Evolution' 
+                navigate={() => {
+                    props.navigation.navigate('SkinEvolutionScreen')}}/>
                 <BlueRectangle title='Prescription' />
                 <BlueRectangle title='Medical File' />
                 <BlueRectangle title='Product Suggestion' />
