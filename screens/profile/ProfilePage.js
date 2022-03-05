@@ -13,21 +13,24 @@ const ProfilePage = props => {
             <View style={styles.data_profile}>
                 <Text style={styles.title}>Profile</Text>
                 <DataUser
-                firstName = 'Elise'
-                name = 'Malard' 
+                firstName = 'Profile'
+                name = 'Ton' 
                 image = {require('../../assets/profile/profilePhoto.png')}
-                level = 'level'
+                level = 'niveau client 1'
                 />
             </View>
             <View style={styles.container}>
-                <BlueRectangle title='My Routine' 
+                <BlueRectangle title='Mes préferences' 
                 navigate={() => {
                     props.navigation.navigate('Home')}}/>
-                <BlueRectangle title='Skin Evolution' />
-                <BlueRectangle title='Prescription' />
-                <BlueRectangle title='Medical File' />
-                <BlueRectangle title='Product Suggestion' />
-                <BlueRectangle title='Emergency Photo' />
+                <BlueRectangle title='Ma liste de souhaits'
+                navigate={() => {
+                    props.navigation.navigate('ProductPage')}} />
+                <BlueRectangle title='Historiques de commandes' />
+                <BlueRectangle title='Contactez-nous'
+                navigate={() => {
+                    props.navigation.navigate('Message')}} />
+                <BlueRectangle title='Deconnexion' />
             </View>
          </ScrollView>
         </>
