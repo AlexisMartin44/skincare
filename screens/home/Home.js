@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet, ScrollView, Image} from 'react-native';
+import {View, Text, Button, StyleSheet, ScrollView} from 'react-native';
 import Colors from '../../constants/Colors';
 
 import InfoRectangle from '../../components/UI/InfoRectangle';
@@ -10,21 +10,26 @@ const Home = props => {
     return(  
         <ScrollView style={{flexGrow: 1, paddingTop: 50, backgroundColor: "white"}}>
             <View style={styles.container}>
-                <Text style={styles.title}>ACTUALITE</Text>
+                <Text style={styles.title}>Ma Routine du jour</Text>
                 <View style={styles.subcontainer}>
-                    <Text style={styles.subheading}>Mes préférences</Text>
+                    <Text style={styles.subheading}>Prescription du jour</Text>
                     <View style={styles.rectanglesContainers}>
-                        <InfoRectangle title={"Racing Surf"} value={2} image={require('../../assets/snow2.jpg')}/>
-                        <InfoRectangle title={"Free Surf"} value={1} image={require('../../assets/snow3.jpg')}/>
+                        <InfoRectangle title={"Roaccutane"} value={2}/>
+                        <InfoRectangle title={"Crème de jour"} value={1}/>
+                        <InfoRectangle title={"Vitamines"} value={3}/>
                     </View>
                 </View>
                 <View style={styles.subcontainer}>
-                    <Text style={styles.subheading}>Promos du jour</Text>
+                    <Text style={styles.subheading}>Tracker d'eau</Text>
                     <View style={styles.rectanglesContainers}>
-                        <View style={styles.imageContainer}>
-                            <Image style={{ width: 350, height: 209}} source= {require('../../assets/promo.png')}/>
-                        </View>
+                        <WaterTracker />
                     </View>
+                </View>
+                <View style={styles.subcontainer}>
+                    <Text style={styles.subheading}>Recommandation météo</Text>
+                    <View style={[styles.rectanglesContainers, {marginBottom: 300}]}>
+                        <Meteo />
+                    </View> 
                 </View>
             </View>
         </ScrollView>
@@ -49,7 +54,7 @@ const styles = StyleSheet.create({
         marginBottom: 30, 
     },
     subheading: {
-        color: Colors.darkBlue,
+        color: Colors.secondary,
         fontSize: 24,
         fontFamily: 'koho-light',
         marginBottom: 10

@@ -5,31 +5,45 @@ import Product from '../models/product';
 const PRODUCTS = [
   new Product(
     'p1',
-    'Ski Junior',
-    'https://www.christysports.com/dw/image/v2/BGBB_PRD/on/demandware.static/-/Sites-master-winter/default/dw73729c44/0455146_000_2.jpg?sw=800&sh=800',
-    'Conçu pour aider les petits skieurs à développer des bases solides, le Ski Junior est un ski de piste léger adapté aux niveaux débutant et intermédiaire.',
-    50.00
+    'Red Shirt',
+    'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+    'A red t-shirt, perfect for days with non-red weather.',
+    29.99
   ),
   new Product(
     'p2',
-    'Ski Senior',
-    'https://images.cdn.snowleader.com/media/catalog/product/cache/1/image/0dc2d03fe217f8c83829496872af24a0/m/i/mirage_2020-configurable-lacroix-lacr00001.jpg',
-    'En combinant la coupe d un ski de carving avec les actuelles largeurs sous le pied, le SKI SENIOR offre une puissante précision et une très bonne accroche incluant une stabilité et un contrôle accrus.',
-    90.00
+    'Blue Carpet',
+    'https://images.pexels.com/photos/6292/blue-pattern-texture-macro.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    'Fits your red shirt perfectly. To stand on. Not to wear it.',
+    99.99
   ),
   new Product(
     'p3',
-    'Free Surf',
-    'https://images.cdn.snowleader.com/media/catalog/product/cache/1/image/0dc2d03fe217f8c83829496872af24a0/f/a/family-tree-pow-wrench-splitboard-2022-configurable-burton-burt01896_02.jpg',
-    'Avec le free snow, rien ne peut stopper votre avancée. Toujours aussi agréable à rider, il reste l une des boards de freestyle les plus polyvalentes du marché.',
-    640.00
+    'Coffee Mug',
+    'https://images.pexels.com/photos/160834/coffee-cup-and-saucer-black-coffee-loose-coffee-beans-160834.jpeg?cs=srgb&dl=bean-beans-black-coffee-160834.jpg&fm=jpg',
+    'Can also be used for tea!',
+    8.99
   ),
   new Product(
     'p4',
-    'Racing Surf',
-    'https://www.burton.com/static/product/H22/23530100000155_1.png',
-    "Destinée aux riders de niveaux intermédiaire à expert, la version splittée de la board à tout faire de Xavier est à la croisée de la jouabilité, de la progressivité et de la précision.",
-    750.00
+    'The Book - Limited Edition',
+    'https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?cs=srgb&dl=blur-blurred-book-pages-46274.jpg&fm=jpg',
+    "What the content is? Why would that matter? It's a limited edition!",
+    15.99
+  ),
+  new Product(
+    'p5',
+    'PowerBook',
+    'https://get.pxhere.com/photo/laptop-computer-macbook-mac-screen-water-board-keyboard-technology-air-mouse-photo-airport-aircraft-tablet-aviation-office-black-monitor-keys-graphic-hardware-image-pc-exhibition-multimedia-calculator-vector-water-cooling-floppy-disk-phased-out-desktop-computer-netbook-personal-computer-computer-monitor-electronic-device-computer-hardware-display-device-448748.jpg',
+    'Awesome hardware, crappy keyboard and a hefty price. Buy now before a new one is released!',
+    2299.99
+  ),
+  new Product(
+    'p6',
+    'Pen & Paper',
+    'https://cdn.pixabay.com/photo/2015/10/03/02/14/pen-969298_1280.jpg',
+    "Can be used for role-playing (not the kind of role-playing you're thinking about...).",
+    5.49
   )
 ];
 

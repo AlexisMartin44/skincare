@@ -1,14 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Text,Image } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Colors from '../../constants/Colors';
 
 const InfoRectangle = props => {
     return (
         <View style={styles.card}>
             <Text style={styles.title}>{props.title}</Text>
-            <View style={styles.imageContainer}>
-                <Image style={styles.number} source={props.image}/>
-            </View>
+            <Text style={styles.number}>{props.value}</Text>
         </View>
     );
 };
@@ -21,22 +19,22 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 5,
     borderRadius: 10,
-    backgroundColor: "white",
-    height: 180,
-    width: 105,
+    backgroundColor: Colors.lightPink,
+    height: 90,
+    width: 98,
     paddingLeft: 15,
     paddingVertical: 5,
     justifyContent: 'space-between',
     marginRight: 20
   },
   title: {
-      fontSize: 15,
-      color: Colors.darkBlue,
+      fontSize: 10,
+      color: Colors.darkPink,
   },
   number: {
     fontSize: 24,
-    fontFamily: 'koho-bold',
-    width: 70, height: 130,
+    color: Colors.darkPink,
+    fontFamily: 'koho-bold'
   }
 });
 
