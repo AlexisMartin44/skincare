@@ -8,7 +8,6 @@ import Colors from '../../constants/Colors';
 const ProfilePage = props => {
     var icon = require('../../assets/profile/profilePhoto.png');
     return(
-        <>
         <ScrollView style={{flexGrow: 1, paddingTop: 50, backgroundColor: "white"}}>
             <View style={styles.data_profile}>
                 <Text style={styles.title}>Profile</Text>
@@ -20,17 +19,14 @@ const ProfilePage = props => {
                 />
             </View>
             <View style={styles.container}>
-                <BlueRectangle title='My Routine' 
-                navigate={() => {
-                    props.navigation.navigate('Home')}}/>
-                <BlueRectangle title='Skin Evolution' />
+                <BlueRectangle title='My Routine' navigate={() => {props.navigation.navigate('Home')}} />
+                <BlueRectangle title='Skin Evolution' navigate={() => {props.navigation.navigate('SkinEvolution')}} />
                 <BlueRectangle title='Prescription' />
                 <BlueRectangle title='Medical File' />
                 <BlueRectangle title='Product Suggestion' />
                 <BlueRectangle title='Emergency Photo' />
             </View>
          </ScrollView>
-        </>
     );
 }
 
@@ -45,6 +41,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom : 200
     },
     screen: {
         flex: 1

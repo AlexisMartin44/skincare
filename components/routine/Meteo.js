@@ -1,13 +1,31 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Colors from '../../constants/Colors';
+import {WEATHERSTACK_API_KEY} from '@env';
+
+
+const fetchMeteo = async () => {
+  let response = fetch('http://api.weatherapi.com/v1/future.json', {
+    method: 'POST',
+    headers: {
+      'X-Auth-Token': WEATHERSTACK_API_KEY,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(() => console.log("Error with loading meteo"))
+  console.log(response);
+}
 
 const Meteo = props => {
     return (
-        <View style={styles.card}>
-            <Text style={styles.title}>{props.title}</Text>
+        <TouchableOpacity style={styles.card} onPress={fetchMeteo}>
+            <Text style={styles.title}>{WEATHERSTACK_API_KEY}</Text>
             <Text style={styles.number}>{props.value}</Text>
-        </View>
+            <Text>{process.env.WEATHERSTACK_API_KEY}</Text>
+        </TouchableOpacity>
     );
 };
 

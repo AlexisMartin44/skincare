@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 import Home from '../screens/home/Home';
-import Profile from '../screens/profile/ProfilePage';
+import ProfileNavigator from './subnavigators/ProfileNavigator';
 import Message from '../screens/messages/Message';
 import Barcode from '../screens/barcode/Barcode';
 
@@ -73,7 +73,7 @@ const Tabs = () => {
                     }}} 
             />
             <Tab.Screen name="Profile" 
-                component={Profile} 
+                component={ProfileNavigator} 
                 options={{ 
                     headerShown: false, 
                     tabBarIcon: ({focused}) => {
