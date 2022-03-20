@@ -27,7 +27,7 @@ const Home = props => {
                 </View>
                 <View style={styles.subcontainer}>
                     <Text style={styles.subheading}>Recommandation météo</Text>
-                    <View style={[styles.rectanglesContainers, {marginBottom: 300}]}>
+                    <View style={[styles.rectanglesContainers, {marginBottom: 300, marginLeft: -40, width: '200%'}]}>
                         <Meteo />
                     </View> 
                 </View>

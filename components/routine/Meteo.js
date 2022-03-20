@@ -1,53 +1,98 @@
-import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet, Text, Box, Image, ScrollView } from 'react-native';
 import Colors from '../../constants/Colors';
-import {WEATHERSTACK_API_KEY} from '@env';
+import {API_KEY_METEO} from '@env';
 
 
-const fetchMeteo = async () => {
-  let response = fetch('http://api.weatherapi.com/v1/future.json', {
-    method: 'POST',
-    headers: {
-      'X-Auth-Token': WEATHERSTACK_API_KEY,
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  })
-    .then(res => res.json())
-    .then(res => console.log(res))
-    .catch(() => console.log("Error with loading meteo"))
-  console.log(response);
-}
+const Meteo = (props) => {
+  const [meteo, setMeteo] = useState([]);
+  
+  const fetchMeteo = async () => {
+    await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY_METEO}&q=Paris&days=2&aqi=no&alerts=no`)
+      .then(res => res.json())
+      .then((res) => {
+        let hoursToDisplay = [];
+        for(let j=0; j<2; j++) {
+          res['forecast']['forecastday'][j]['hour'].forEach(hour => {
+            let tempHour = '';
+            for(let i=0; i<hour['time'].length; i++){
+              if(i != 10) {
+                tempHour += hour['time'][i];
+              } else {
+                tempHour += 'T';
+              }
+            }
+            if(Date.now() < Date.parse(tempHour) && hoursToDisplay.length < 10) {
+              hoursToDisplay.push(hour);
+            }    
+          });
+        } 
+        setMeteo(hoursToDisplay);
+      })
+      .catch((err) => console.log(err));
+  } 
 
-const Meteo = props => {
-    return (
-        <TouchableOpacity style={styles.card} onPress={fetchMeteo}>
-            <Text style={styles.title}>{WEATHERSTACK_API_KEY}</Text>
-            <Text style={styles.number}>{props.value}</Text>
-            <Text>{process.env.WEATHERSTACK_API_KEY}</Text>
-        </TouchableOpacity>
-    );
+  useEffect(() => {
+      fetchMeteo();
+  }, []); 
+
+ 
+
+  return ( 
+    <ScrollView showsHorizontalScrollIndicator={false} style={{ height: "110%"}} horizontal={true}>
+      <View style={styles.scrollView}>
+      {
+        meteo.map((hour, index, array) => {
+          let time = hour['time'].split(" ")[1].split(":").join('h');
+          return ( 
+            <View style={styles.card} key={index}>
+              <Text style={styles.hour}>{time}</Text>
+              <Image style={{width: '50%', height: '50%'}} source={{uri: "https:" + hour['condition']['icon']}} />
+              <Text style={styles.title}>{hour['temp_c'] + "°"}</Text>
+              <Text style={styles.uv}>{"UV " + hour['uv']}</Text>
+            </View>
+          ); 
+        })
+      }
+      </View>
+    </ScrollView>
+  );
 };
 
 const styles = StyleSheet.create({
+  scrollView: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingVertical: 15,
+    paddingLeft: 15,
+    paddingRight: 300
+  },
   card: {
     shadowColor: 'black',
     shadowOpacity: 0.26,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 2 }, 
     shadowRadius: 8,
     elevation: 5,
     borderRadius: 10,
-    backgroundColor: Colors.lightPink,
-    height: 90,
-    width: 98,
-    paddingLeft: 15,
+    backgroundColor: "#F6F5FB",
+    height: 110,
+    width: 80,
     paddingVertical: 5,
     justifyContent: 'space-between',
+    alignItems: "center",
     marginRight: 20
   },
-  title: {
+  hour: {
       fontSize: 10,
-      color: Colors.darkPink,
+      color: Colors.darkBlue,
+  },
+  title: {
+      fontSize: 15,
+      color: Colors.darkBlue,
+  },
+  uv: {
+      fontSize: 10,
+      color: Colors.darkBlue,
   },
   number: {
     fontSize: 24,
