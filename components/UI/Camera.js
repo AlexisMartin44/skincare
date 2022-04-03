@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {Modal,Text,TouchableOpacity,View} from "react-native";
-import { Camera } from "expo-camera";
-import { Button } from "react-native-paper";
+import { Camera } from "expo-camera";//expo install expo-camera
+import { Button } from "react-native-paper";//npm install react-native-paper
 
 const CameraModule = (props) => {
    const [cameraRef, setCameraRef] = useState(null);
