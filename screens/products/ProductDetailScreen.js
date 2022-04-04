@@ -5,16 +5,15 @@ import { useSelector } from "react-redux";
 import Colors from "../../constants/Colors";
 
 const ProductDetailScreen = props => {
-    const productId = props.route.params['productId'];
-    const selectedProduct = useSelector(state => state.products.allProducts.find(prod => prod.id === productId));
+    const item = props.route.params['item'];
+    console.log(item);
     return(
         <ScrollView>
-            <Image style={styles.image} source={{uri: selectedProduct.imageUrl}} />
+            <Image style={styles.image} source={{uri: item["heroImage"]}} />
             <View style={styles.actions}>
                 <Button color={Colors.primary} title='Add to Cart' onPress={() => {}} />
             </View>
-            <Text style={styles.price}>${selectedProduct.price.toFixed(2)}</Text>
-            <Text style={styles.description}>{selectedProduct.description}</Text>
+            <Text style={styles.price}>${20}</Text>
         </ScrollView>
     );
 };

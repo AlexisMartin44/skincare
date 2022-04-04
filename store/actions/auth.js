@@ -55,27 +55,6 @@ export const login = (email, password) => {
         alert(error.message);
       });
 
-    // const response = await fetch(
-    //   'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD23fPcux4sIObvJiUcC4NiLo9iOuP-Mas',
-    //   {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //       email: email,
-    //       password: password,
-    //       returnSecureToken: true
-    //     })
-    //   }
-    // );
-
-    // if (!response.ok) {
-    //   throw new Error('Something went wrong!');
-    // }
-
-    // const resData = await response.json();
-    // console.log(resData);
     dispatch({ type: LOGIN });
   };
 };

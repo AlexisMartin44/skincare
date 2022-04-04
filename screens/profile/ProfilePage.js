@@ -10,7 +10,7 @@ const ProfilePage = props => {
     return(
         <ScrollView style={{flexGrow: 1, paddingTop: 50, backgroundColor: "white"}}>
             <View style={styles.data_profile}>
-                <Text style={styles.title}>Profile</Text>
+                <Text style={styles.title}>Profil</Text>
                 <DataUser
                 firstName = 'Elise'
                 name = 'Malard' 
@@ -19,12 +19,13 @@ const ProfilePage = props => {
                 />
             </View>
             <View style={styles.container}>
-                <BlueRectangle title='My Routine' navigate={() => {props.navigation.navigate('Home')}} />
-                <BlueRectangle title='Skin Evolution' navigate={() => {props.navigation.navigate('SkinEvolution')}} />
+                <BlueRectangle title='Ma Routine' navigate={() => {props.navigation.navigate('Home')}} />
+                <BlueRectangle title='Evolution de la peau' navigate={() => {props.navigation.navigate('SkinEvolution')}} />
                 <BlueRectangle title='Prescription' />
-                <BlueRectangle title='Medical File' />
-                <BlueRectangle title='Product Suggestion' />
-                <BlueRectangle title='Emergency Photo' />
+                <BlueRectangle title='Capteur' navigate={() => {props.navigation.navigate('CaptorPage')}} />
+                <BlueRectangle title='Dossier Médical' />
+                <BlueRectangle title='Suggestions produits' />
+                <BlueRectangle title="Photo d'urgence" />
             </View>
          </ScrollView>
     );

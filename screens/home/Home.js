@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Button, StyleSheet, ScrollView} from 'react-native';
 import Colors from '../../constants/Colors';
 
@@ -7,6 +7,8 @@ import WaterTracker from '../../components/routine/WaterTracker';
 import Meteo from '../../components/routine/Meteo';
 
 const Home = props => {
+    const [currentUV, setCurrentUV] = useState("");
+
     return(  
         <ScrollView style={{flexGrow: 1, paddingTop: 50, backgroundColor: "white"}}>
             <View style={styles.container}>
@@ -29,6 +31,7 @@ const Home = props => {
                     <Text style={styles.subheading}>Recommandation météo</Text>
                     <View style={[styles.rectanglesContainers, {marginBottom: 300, marginLeft: -40, width: '200%'}]}>
                         <Meteo />
+                        <Text style={styles.title}>Conseils</Text>
                     </View> 
                 </View>
             </View>

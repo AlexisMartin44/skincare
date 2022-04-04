@@ -8,7 +8,7 @@ const ProductStack = createStackNavigator();
 const ProductNavigator = () => {
     return(
         <ProductStack.Navigator>
-            <ProductStack.Screen name="ProductPage" component={ProductPage} />
+            <ProductStack.Screen name="ProductPage" component={ProductPage} options={{ headerShown: false}} />
             <ProductStack.Screen name="ProductDetail" component={ProductDetailScreen} />
         </ProductStack.Navigator>
     );

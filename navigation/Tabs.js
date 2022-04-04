@@ -68,7 +68,7 @@ const Tabs = () => {
                                     tintColor : focused ? Colors.primary : "#748c94",
                                 }}
                             />
-                            <Text style={{color: focused ? Colors.primary : "#748c94", fontSize: 12, fontFamily: "koho"}}>BARCODE</Text>
+                            <Text style={{color: focused ? Colors.primary : "#748c94", fontSize: 12, fontFamily: "koho"}}>SCAN</Text>
                         </View>)
                     }}} 
             />
@@ -87,7 +87,7 @@ const Tabs = () => {
                                     tintColor : focused ? Colors.primary : "#748c94",
                                 }}
                             />
-                            <Text style={{color: focused ? Colors.primary : "#748c94", fontSize: 12, fontFamily: "koho"}}>PROFILE</Text>
+                            <Text style={{color: focused ? Colors.primary : "#748c94", fontSize: 12, fontFamily: "koho"}}>PROFIL</Text>
                         </View>)
                     }}} 
             />
@@ -143,7 +143,7 @@ const Tabs = () => {
                                     tintColor : focused ? Colors.primary : "#748c94",
                                 }}
                             />
-                            <Text style={{color: focused ? Colors.primary : "#748c94", fontSize: 12, fontFamily: "koho"}}>PRODUCTS</Text>
+                            <Text style={{color: focused ? Colors.primary : "#748c94", fontSize: 12, fontFamily: "koho"}}>PRODUITS</Text>
                         </View>)
                     }}} 
             />

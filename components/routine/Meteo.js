@@ -75,24 +75,29 @@ const styles = StyleSheet.create({
     elevation: 5,
     borderRadius: 10,
     backgroundColor: "#F6F5FB",
-    height: 110,
+    height: 115,
     width: 80,
     paddingVertical: 5,
     justifyContent: 'space-between',
     alignItems: "center",
-    marginRight: 20
+    marginRight: 20,
+    fontFamily: 'koho',
+    paddingBottom: 20
   },
   hour: {
       fontSize: 10,
       color: Colors.darkBlue,
+      fontFamily: 'koho'
   },
   title: {
       fontSize: 15,
       color: Colors.darkBlue,
+      fontFamily: 'koho'
   },
   uv: {
       fontSize: 10,
       color: Colors.darkBlue,
+      fontFamily: 'koho',
   },
   number: {
     fontSize: 24,

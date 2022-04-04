@@ -15,7 +15,7 @@ const DataUser = props => {
             </View>
             <View style={styles.details}>
                 <TouchableOpacity onPress={() => alert('Button clicked')} style={styles.appButtonContainer}>
-                    <Text style={styles.button}>Change profile</Text>
+                    <Text style={styles.button}>Changer de profil</Text>
                 </TouchableOpacity>
             </View>
         </View>
