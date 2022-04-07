@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { FlatList, Text, View, StyleSheet } from 'react-native';
+import { FlatList, Text, View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector } from "react-redux";
 import Colors from '../../constants/Colors';
 import ProductItem from "../../components/shop/ProductItem";
@@ -11,7 +11,6 @@ const ProductPage = props => {
     //const products = useSelector(state => state.products.allProducts);
 
     const [products, setProducts] = useState([]);
-    console.log(API_KEY_PRODUITS);
 
     const options = {
         method: 'GET',
@@ -35,21 +34,24 @@ const ProductPage = props => {
     }, []); 
 
     return (
-        <FlatList 
-            data={products} 
-            keyExtractor={item => item.productId} 
-            renderItem={itemData => ( 
-                <ProductItem 
-                    image={itemData.item.heroImage}
-                    title={itemData.item.displayName} 
-                    price={20} 
-                    onViewDetail={() => {
-                        props.navigation.navigate('ProductDetail', {item: itemData.item});
-                    }} 
-                    onAddToCart={() => {}} 
-                />
-            )}
-        />
+        <ScrollView>
+            <View style={styles.productsContainer}>
+                {
+                    products.map((product, index, products) => {
+                        return(<ProductItem 
+                            key={index}
+                            image={product.heroImage}
+                            title={product.displayName} 
+                            price={product["currentSku"].listPrice} 
+                            onViewDetail={() => {
+                                props.navigation.navigate('ProductDetail', {item: product, productTitle: product.displayName});
+                            }} 
+                            onAddToCart={() => {}} 
+                        />);
+                    })
+                }
+            </View>
+        </ScrollView>
     );
 }
 
@@ -67,6 +69,10 @@ const styles = StyleSheet.create({
         color: Colors.primary,
         marginBottom: 30, 
     },
+    productsContainer: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+    }
 });
 
 export default ProductPage;

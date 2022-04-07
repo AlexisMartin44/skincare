@@ -11,6 +11,18 @@ const Barcode = props => {
     const [image, setImage] = useState(null);
     const [camera, setShowCamera] = useState(false);
     const [hasPermission, setHasPermission] = useState(null);
+
+    const product = {
+        heroImage: "https://www.sephora.fr/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw5e016235/images/hi-res/SKU/SKU_3047/584258_swatch.jpg",
+        brandName: "Clarins Paris",
+        displayName: "Baume Beauté Eclair",
+        rating: "4.526",
+        reviews: "25948",
+        currentSku: {
+            listPrice: "$44.00"
+        }
+    }
+
       useEffect(() => {
           (async () => {
           const { status } = await Camera.requestCameraPermissionsAsync();
@@ -26,7 +38,7 @@ const Barcode = props => {
     return(
         <ScrollView style={{flexGrow: 1, paddingTop: 50, backgroundColor: "white"}}>
             <View style={styles.container}>
-                <Text style={styles.title}>Scan Bar Code</Text>
+                <Text style={styles.title}>Scanner</Text>
                 <View style={styles.subcontainer}>
                     <View
                         style={{
@@ -59,7 +71,7 @@ const Barcode = props => {
                 setImage={(result) => setImage(result.uri)}
                 />
             )}
-            <PinkRectangle title='Details product'/>
+            <PinkRectangle title='Details du produit' navigate={() => props.navigation.navigate('ProductDetail', {item: product, productTitle: product.displayName}) }/>
             </View>
         </ScrollView>
     );

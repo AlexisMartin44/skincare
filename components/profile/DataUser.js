@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { auth } from "../../firebase";
+import {signOut} from "firebase/auth";
 
 import Colors from "../../constants/Colors";
 
@@ -14,10 +16,10 @@ const DataUser = props => {
                 <Text style={styles.level}>{props.level}</Text>
             </View>
             <View style={styles.details}>
-                <TouchableOpacity onPress={() => alert('Button clicked')} style={styles.appButtonContainer}>
+                <TouchableOpacity onPress={() => signOut(auth)} style={styles.appButtonContainer}>
                     <Text style={styles.button}>Changer de profil</Text>
                 </TouchableOpacity>
-            </View>
+            </View> 
         </View>
     );
 }

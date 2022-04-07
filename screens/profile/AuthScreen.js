@@ -71,7 +71,9 @@ const AuthScreen = props => {
             dispatch(
                 authActions.signup(
                     formState.inputValues.email,
-                    formState.inputValues.password
+                    formState.inputValues.password,
+                    formState.inputValues.firstName,
+                    formState.inputValues.lastName
                 )
             );
         }
@@ -161,7 +163,7 @@ const AuthScreen = props => {
                 </View>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.button} onPress={signupHandler}>
-                        <Text style={styles.buttonText}>S'inscrire'</Text>
+                        <Text style={styles.buttonText}>S'inscrire</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => {props.navigation.navigate('Login')}} style={{color: "black"}} > 
                         <Text style={{color: Colors.darkBlue}}>Déjà inscrit ? Se connecter</Text>

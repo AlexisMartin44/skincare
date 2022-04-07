@@ -1,19 +1,30 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 
 import BlueRectangle from '../../components/UI/BlueRectangle';
 import DataUser from '../../components/profile/DataUser';
 import Colors from '../../constants/Colors';
+import { auth } from "../../firebase";
 
 const ProfilePage = props => {
     var icon = require('../../assets/profile/profilePhoto.png');
+
+    useEffect(() => {
+        auth.onAuthStateChanged(user => {
+            if(!user) {
+                props.navigation.navigate('AuthNavigator');
+            }
+        })
+    }, [])
+
+
     return(
         <ScrollView style={{flexGrow: 1, paddingTop: 50, backgroundColor: "white"}}>
             <View style={styles.data_profile}>
                 <Text style={styles.title}>Profil</Text>
                 <DataUser
-                firstName = 'Elise'
-                name = 'Malard' 
+                firstName = {auth["myData"]["firstName"]}
+                name = {auth["myData"]["lastName"]}
                 image = {require('../../assets/profile/profilePhoto.png')}
                 level = 'level'
                 />

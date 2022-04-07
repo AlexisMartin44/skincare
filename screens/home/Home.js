@@ -15,11 +15,11 @@ const Home = props => {
                 <Text style={styles.title}>Ma Routine du jour</Text>
                 <View style={styles.subcontainer}>
                     <Text style={styles.subheading}>Prescription du jour</Text>
-                    <View style={styles.rectanglesContainers}>
+                    <ScrollView showsHorizontalScrollIndicator={false} style={[styles.rectanglesContainers, styles.prescription]} horizontal={true} >
                         <InfoRectangle title={"Roaccutane"} value={2}/>
                         <InfoRectangle title={"Crème de jour"} value={1}/>
                         <InfoRectangle title={"Vitamines"} value={3}/>
-                    </View>
+                    </ScrollView>
                 </View>
                 <View style={styles.subcontainer}>
                     <Text style={styles.subheading}>Tracker d'eau</Text>
@@ -29,9 +29,8 @@ const Home = props => {
                 </View>
                 <View style={styles.subcontainer}>
                     <Text style={styles.subheading}>Recommandation météo</Text>
-                    <View style={[styles.rectanglesContainers, {marginBottom: 300, marginLeft: -40, width: '200%'}]}>
+                    <View style={[styles.rectanglesContainers, {marginBottom: 100, marginLeft: -40, width: '200%'}]}>
                         <Meteo />
-                        <Text style={styles.title}>Conseils</Text>
                     </View> 
                 </View>
             </View>
@@ -45,6 +44,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#ffffff',
+        marginTop: 200
     },
     subcontainer: {
         width: '80%',
@@ -63,7 +63,12 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     rectanglesContainers: {
-        flexDirection: 'row'
+        flexDirection: 'column'
+    },
+    prescription: {
+        marginLeft: -30,
+        width: "150%",
+        padding: 20
     }
 });
 
