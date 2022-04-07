@@ -1,7 +1,9 @@
 {
   "expo": {
-    "name": "skincare",
+    "name": "SkinCare",
     "slug": "skincare",
+    "privacy": "public",
+    "description": "Gagnez du temps sur votre suivi dermatologique.",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
